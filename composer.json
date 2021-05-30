@@ -1,0 +1,20 @@
+{
+    "name": "telegram/logger",
+    "description": "Simple telegram logger",
+    "type": "libary",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Maksym Solomianyi",
+            "email": "maxssolom@gmail.com"
+        }
+    ],
+    "require": {
+        "monolog/monolog": "^2.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "src\\" : "src/"
+        }
+    }
+}
