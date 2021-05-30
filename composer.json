@@ -1,5 +1,5 @@
 {
-    "name": "telegram/logger",
+    "name": "telegram/telegram-logger",
     "description": "Simple telegram logger",
     "type": "libary",
     "license": "MIT",
