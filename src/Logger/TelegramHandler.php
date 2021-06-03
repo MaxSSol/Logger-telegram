@@ -19,8 +19,9 @@ class TelegramHandler extends AbstractProcessingHandler implements TelegramInter
      */
     private string $channel;
     private const BOT_API = 'https://api.telegram.org/bot';
-    public function __construct(string $apiToken, string $channel, $level = Logger::DEBUG)
+    public function __construct(string $apiToken, string $channel, $level = Logger::DEBUG, bool $bubble = true)
     {
+        parent::__construct($level, $bubble);
         $this->apiToken = $apiToken;
         $this->channel = $channel;
     }
@@ -34,13 +35,7 @@ class TelegramHandler extends AbstractProcessingHandler implements TelegramInter
     }
     public function write(array $record): void
     {
-        $message = 'Date: ' .
-            date(DATE_RFC822)  .
-            '| Level: ' . $record['level_name'] .
-            '| channel: ' . $record['channel'] .
-            '| message: ' .
-            $record['message'];
-        $this->send($message);
+        $this->send($record['formatted']);
     }
     public function send(string $message): void
     {
